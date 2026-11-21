@@ -14,7 +14,7 @@ https://neveythithaa.github.io/
 ├── README.md
 └── assets/
     ├── Neveythithaa_S_Resume.pdf
-    ├── lora_hardware_setup.jpg
+    ├── lora_hardware_setup.webp
     ├── lora_transmitter_circuit.webp
     ├── lora_receiver_circuit.webp
     ├── flood_alert_circuit.webp
