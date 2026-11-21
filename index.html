@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#081426" />
-  <meta name="description" content="Neveythithaa S — M.Tech VLSI Design student exploring Physical Design, RTL-to-GDSII implementation, low-power VLSI and emerging computing architectures." />
+  <meta name="description" content="Neveythithaa S — M.Tech VLSI Design student focused on ASIC Physical Design, RTL-to-GDSII implementation, timing analysis and low-power VLSI." />
   <meta property="og:title" content="Neveythithaa S | VLSI Design Portfolio" />
-  <meta property="og:description" content="VLSI Physical Design • RTL-to-GDSII • Low-Power VLSI • Research" />
+  <meta property="og:description" content="ASIC Physical Design • RTL-to-GDSII • OpenROAD • Low-Power VLSI • Research" />
   <meta property="og:type" content="website" />
   <title>Neveythithaa S | VLSI Design Portfolio</title>
   <style>
@@ -140,12 +140,61 @@
     .mini-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 15px; }
     .mini-gallery figure { margin: 0; overflow: hidden; border: 1px solid #e1e8f0; border-radius: 12px; background: #f6f9fc; }
     .mini-gallery figure.wide { grid-column: 1 / -1; }
-    .mini-gallery img { display: block; width: 100%; height: 155px; object-fit: contain; background: #f7f9fb; }
+    .mini-gallery img { display: block; width: 100%; max-width: 100%; height: 155px; object-fit: contain; background: #f7f9fb; }
     .mini-gallery figure.cover img { object-fit: cover; }
     .mini-gallery figcaption { padding: 8px 10px; color: #66778b; font-size: 10px; line-height: 1.45; border-top: 1px solid #e8eef4; }
     .mini-card .project-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
     .mini-card .project-tags span { background: #eef6fa; color: #31546a; border: 1px solid #dcebf2; border-radius: 7px; padding: 4px 8px; font-size: 10px; font-weight: 700; }
 
+    .project-media { min-width: 0; margin: 0; border: 1px solid #e1e8f0; border-radius: 13px; overflow: hidden; background: #f6f9fc; }
+    .project-media img { display: block; width: 100%; height: 205px; object-fit: contain; background: #f7f9fb; }
+    .project-media figcaption { padding: 9px 11px; color: #66778b; font-size: 10px; line-height: 1.45; border-top: 1px solid #e8eef4; }
+    .image-fallback { display: none; min-height: 150px; padding: 18px; align-content: center; justify-items: center; text-align: center; background: linear-gradient(145deg,#edf5f9,#f8fbfd); color: #36536a; }
+    .image-fallback strong { display: block; font-size: 12px; }
+    .image-fallback span { display: block; margin-top: 5px; font-size: 10px; color: #718096; }
+    .research-card-secondary { margin-top: 18px; background: #122844; }
+    .research-card-secondary .paper-label { color: var(--gold); }
+    .research-card-secondary .status-label { display: inline-block; color: #d8e5f1; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.16); padding: 7px 11px; border-radius: 999px; font-size: 10px; font-weight: 800; white-space: nowrap; }
+    .mini-card, .project-card, .timeline-card, .skill-card, .research-card { min-width: 0; }
+    @media (max-width: 1080px) {
+      .container { width: min(100% - 36px, var(--max)); }
+      .hero-grid { gap: 30px; }
+      .nav-links { gap: 15px; font-size: 12px; }
+      .project-body { grid-template-columns: minmax(0,1fr) minmax(0,.9fr); }
+    }
+    @media (max-width: 760px) {
+      nav { min-height: 64px; }
+      .menu-btn { display: block; }
+      .nav-links { display: none; position: absolute; top: 63px; left: 0; right: 0; padding: 18px 22px 22px; background: #081426; border-bottom: 1px solid rgba(255,255,255,.12); flex-direction: column; align-items: stretch; gap: 14px; }
+      .nav-links.open { display: flex; }
+      .nav-cta { text-align: center; }
+      .hero-grid, .about-grid, .project-body, .journey-grid, .contact-grid { grid-template-columns: 1fr; }
+      .hero { padding: 62px 0 48px; }
+      .chip-scene { min-height: 280px; }
+      .project-visuals { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .project-visuals .visual:first-child { grid-column: span 2; }
+      .other-projects, .skills-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 520px) {
+      .container { width: calc(100% - 28px); }
+      h1 { font-size: clamp(38px, 11vw, 46px); }
+      section { padding: 56px 0; }
+      .stats-grid { grid-template-columns: 1fr; }
+      .stat { border-right: 0; border-bottom: 1px solid var(--line); padding: 13px 8px; }
+      .stat:last-child { border-bottom: 0; }
+      .project-visuals { grid-template-columns: 1fr; }
+      .project-visuals .visual:first-child { grid-column: auto; }
+      .mini-gallery { grid-template-columns: 1fr; }
+      .mini-gallery figure.wide { grid-column: auto; }
+      .project-media img { height: auto; max-height: 260px; }
+      .metric-row { grid-template-columns: repeat(3,minmax(0,1fr)); }
+      .metric { min-width: 0; }
+      .metric strong { font-size: clamp(17px,5vw,21px); }
+      .metric span, .metric small { overflow-wrap: anywhere; }
+      .actions .btn { width: 100%; }
+      .float-one { right: 0; }
+      .float-two { left: 0; }
+    }
     .research-card { display: grid; grid-template-columns: 1fr auto; gap: 25px; align-items: center; background: var(--navy); color: white; border-radius: 22px; padding: 30px; box-shadow: var(--shadow); }
     .research-card .paper-label { display: inline-block; color: var(--cyan-2); font-size: 10px; font-weight: 850; letter-spacing: .13em; text-transform: uppercase; margin-bottom: 10px; }
     .research-card h3 { font-size: 20px; line-height: 1.35; margin: 0 0 11px; max-width: 750px; }
@@ -242,13 +291,14 @@
     <div class="container">
       <nav aria-label="Main navigation">
         <a class="brand" href="#top" aria-label="Neveythithaa home"><span class="brand-mark">NS</span><span>NEVEYTHITHAA S</span></a>
-        <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+        <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation" aria-controls="navLinks" aria-expanded="false">☰</button>
         <div class="nav-links" id="navLinks">
           <a href="#about">About</a>
           <a href="#projects">Projects</a>
           <a href="#research">Research</a>
           <a href="#journey">Education</a>
           <a href="#skills">Skills</a>
+          <a href="#leadership">Leadership</a>
           <a class="nav-cta" href="#contact">Contact</a>
         </div>
       </nav>
@@ -261,9 +311,9 @@
         <div>
           <div class="eyebrow">M.Tech VLSI Design · 2027 Batch</div>
           <h1>Designing ideas into <span>silicon.</span></h1>
-          <p class="hero-lead">I’m Neveythithaa, an M.Tech VLSI Design student interested in Physical Design, RTL-to-GDSII implementation, low-power VLSI and emerging computing architectures.</p>
+          <p class="hero-lead">I’m Neveythithaa, an M.Tech VLSI Design student at SRMIST building experience in ASIC Physical Design, RTL-to-GDSII implementation, timing analysis and low-power VLSI. I’m interested in VLSI internships and graduate opportunities.</p>
           <div class="hero-tags">
-            <span>Physical Design</span><span>Verilog</span><span>OpenLane</span><span>OpenROAD</span><span>Low-Power VLSI</span>
+            <span>Physical Design</span><span>Verilog</span><span>OpenLane</span><span>OpenROAD</span><span>Low-Power VLSI</span><span>Open to Internships</span>
           </div>
           <div class="actions">
             <a class="btn btn-primary" href="assets/Neveythithaa_S_Resume.pdf" target="_blank" rel="noopener">↓ View résumé</a>
@@ -296,8 +346,8 @@
         <h2 class="section-title">Curious about circuits.<br/>Focused on implementation.</h2>
         <div class="about-grid">
           <div class="about-copy">
-            <p>I am pursuing an M.Tech in VLSI Design at SRM Institute of Science and Technology. My interests include semiconductor design, VLSI Physical Design, RTL design, low-power architectures and emerging computing technologies.</p>
-            <p>I completed a Physical Design training programme at Takshila Institute of VLSI Technologies, where I worked with the RTL-to-GDSII flow using Synopsys IC Compiler. My training covered floorplanning, placement, clock tree synthesis, routing, timing analysis and TCL/Linux-based design tasks.</p>
+            <p>I am pursuing an M.Tech in VLSI Design at SRM Institute of Science and Technology. My primary interests are ASIC Physical Design, semiconductor implementation, RTL design, timing closure and low-power architectures.</p>
+            <p>I completed a Physical Design training programme at Takshila Institute of VLSI Technologies, gaining exposure to the RTL-to-GDSII flow using Synopsys IC Compiler. The training covered floorplanning, placement, clock tree synthesis, routing, static timing analysis, timing closure, TCL and Linux.</p>
             <p>Alongside my coursework, I have implemented an 8-bit clock-gated processing unit using Verilog, OpenLane and the SKY130A PDK, and co-authored research on neuromorphic and quantum-inspired VLSI architectures.</p>
           </div>
           <div class="focus-panel">
@@ -374,9 +424,21 @@
             <p>Developed a team-based environmental monitoring prototype using Arduino, sensors and LoRa wireless communication. The project report describes DHT11 temperature/humidity sensing, MQ135 air-quality sensing and fire detection, with SX1278 LoRa transmitter/receiver circuits for remote data transfer. Solar and piezoelectric energy harvesting were also explored in the proposed system.</p>
             <div class="project-tags"><span>Arduino</span><span>LoRa SX1278</span><span>DHT11</span><span>MQ135</span><span>IoT</span><span>Energy Harvesting</span></div>
             <div class="mini-gallery">
-              <figure class="wide cover"><img loading="lazy" src="assets/be_lora_hardware_setup.png" alt="Photograph of the LoRa environmental monitoring project hardware setup with development boards and solar panel"><figcaption>Project hardware setup — prototype photograph</figcaption></figure>
-              <figure><img loading="lazy" src="assets/be_lora_transmitter_circuit.png" alt="LoRa transmitter circuit diagram for the environmental monitoring system"><figcaption>LoRa transmitter circuit</figcaption></figure>
-              <figure><img loading="lazy" src="assets/be_lora_receiver_circuit.png" alt="Arduino UNO and LoRa receiver circuit diagram"><figcaption>LoRa receiver circuit</figcaption></figure>
+              <figure class="project-media">
+                <img loading="lazy" decoding="async" src="assets/lora_hardware_setup.jpg" alt="Prototype hardware setup for the LoRa environmental monitoring project">
+                <div class="image-fallback"><strong>LoRa monitoring prototype</strong><span>Arduino-based sensor system and wireless hardware</span></div>
+                <figcaption>Environmental monitoring prototype hardware</figcaption>
+              </figure>
+              <figure class="project-media">
+                <img loading="lazy" decoding="async" src="assets/lora_transmitter_circuit.png" alt="Circuit diagram of the LoRa environmental monitoring transmitter">
+                <div class="image-fallback"><strong>LoRa transmitter</strong><span>Arduino UNO, sensors and SX1278 LoRa module</span></div>
+                <figcaption>Transmitter circuit diagram</figcaption>
+              </figure>
+              <figure class="project-media">
+                <img loading="lazy" decoding="async" src="assets/lora_receiver_circuit.png" alt="Circuit diagram of the LoRa receiver">
+                <div class="image-fallback"><strong>LoRa receiver</strong><span>Arduino UNO and SX1278 receiver interface</span></div>
+                <figcaption>Receiver circuit diagram</figcaption>
+              </figure>
             </div>
             <p class="project-note">Academic team project completed at Sri Krishna College of Technology, March 2024. Images are from the submitted project material.</p>
           </article>
@@ -387,9 +449,21 @@
             <p>Developed an Arduino-based early-warning prototype to monitor water levels and indicate flood conditions. The documented design uses float and ultrasonic sensors, DHT11, ESP-01 Wi-Fi, an LCD, LED and buzzer, with ThingSpeak used for cloud-based data visualization.</p>
             <div class="project-tags"><span>Arduino UNO</span><span>Embedded C</span><span>Ultrasonic Sensor</span><span>Float Sensor</span><span>ESP8266</span><span>ThingSpeak</span></div>
             <div class="mini-gallery">
-              <figure class="wide"><img loading="lazy" src="assets/diploma_flood_alert_circuit.jpg" alt="Circuit diagram for Arduino-based public flood alert system with sensors and ESP module"><figcaption>Public Flood Alert System circuit diagram</figcaption></figure>
-              <figure class="cover"><img loading="lazy" src="assets/diploma_flood_alert_hardware_demo.jpg" alt="Hardware prototype of the public flood alert system shown in the submitted demonstration video"><figcaption>Prototype hardware — frame from project demo video</figcaption></figure>
-              <figure class="cover"><img loading="lazy" src="assets/diploma_flood_alert_thingspeak_demo.jpg" alt="ThingSpeak flood alert system monitoring dashboard shown in the submitted demonstration video"><figcaption>ThingSpeak monitoring dashboard — demo frame</figcaption></figure>
+              <figure class="project-media">
+                <img loading="lazy" decoding="async" src="assets/flood_alert_circuit.jpg" alt="Arduino UNO public flood alert system circuit diagram with water-level sensing and alert components">
+                <div class="image-fallback"><strong>Flood alert circuit</strong><span>Arduino UNO, water-level sensors, display and alert modules</span></div>
+                <figcaption>Public Flood Alert System circuit diagram</figcaption>
+              </figure>
+              <figure class="project-media">
+                <img loading="lazy" decoding="async" src="assets/flood_alert_hardware_demo.jpg" alt="Public Flood Alert System hardware prototype captured from the project demonstration">
+                <div class="image-fallback"><strong>Prototype hardware</strong><span>Arduino-based water-level monitoring and alert prototype</span></div>
+                <figcaption>Hardware prototype — demonstration still</figcaption>
+              </figure>
+              <figure class="project-media">
+                <img loading="lazy" decoding="async" src="assets/flood_alert_thingspeak_demo.jpg" alt="ThingSpeak dashboard used to visualize public flood alert system readings">
+                <div class="image-fallback"><strong>ThingSpeak dashboard</strong><span>Remote visualization of flood monitoring data</span></div>
+                <figcaption>ThingSpeak monitoring dashboard — demonstration still</figcaption>
+              </figure>
             </div>
             <p class="project-note">Academic team project completed at PSG Polytechnic College, April 2021. Images include the submitted circuit diagram and selected stills from the project demonstration video.</p>
           </article>
@@ -411,6 +485,15 @@
           </div>
           <a class="btn research-btn" href="https://doi.org/10.1109/ICSPED65817.2026.11448357" target="_blank" rel="noopener">View publication ↗</a>
         </article>
+        <article class="research-card research-card-secondary">
+          <div>
+            <span class="paper-label">M.Tech research project · In progress</span>
+            <h3>A Cross-Design, Stage-Wise and Explainable Machine Learning Framework for Failure Prediction in VLSI Physical Design Using OpenROAD</h3>
+            <p>Developing a research direction to predict physical-design flow failure risk at placement, clock tree synthesis, global routing and detailed routing. The planned study uses explainability to identify influential design and flow parameters, with GCD as an initial benchmark and AES and RISC-V as cross-design evaluation targets.</p>
+            <div class="doi">Planned platform and methods: OpenROAD · Nangate45 · Stage-wise prediction · SHAP-based explanation</div>
+          </div>
+          <span class="status-label">In development</span>
+        </article>
       </div>
     </section>
 
@@ -429,7 +512,7 @@
           <div class="timeline-card">
             <h3>Training & certifications</h3>
             <div class="timeline-item"><strong>Physical Design Training Course</strong><span>Takshila Institute of VLSI Technologies · Jun–Nov 2024</span><p>RTL-to-GDSII flow using Synopsys IC Compiler; floorplanning, placement, CTS, routing, STA, timing closure, TCL and Linux.</p></div>
-            <div class="timeline-item"><strong>Analog VLSI Circuit Design-I</strong><span>Electronics & ICT Academy, IIT Roorkee · Sep–Oct 2026</span><p>Joint Faculty Development Programme; certificate of participation/completion.</p></div>
+            <div class="timeline-item"><strong>Analog VLSI Circuit Design-I</strong><span>Electronics & ICT Academy, IIT Roorkee · 20 Sep–29 Oct 2026</span><p>Joint Faculty Development Programme; successfully completed.</p></div>
             <div class="credential-list">
               <div class="credential"><strong>Systems and Usable Security</strong><span>NPTEL · 2026</span></div>
               <div class="credential"><strong>Embedded Software Development using C++</strong><span>Udemy · 2024</span></div>
@@ -488,19 +571,32 @@
   <script>
     const menuBtn = document.getElementById('menuBtn');
     const navLinks = document.getElementById('navLinks');
-    menuBtn.addEventListener('click', () => {
-      const open = navLinks.classList.toggle('open');
-      menuBtn.setAttribute('aria-expanded', String(open));
-    });
-    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+
+    function closeMenu() {
       navLinks.classList.remove('open');
       menuBtn.setAttribute('aria-expanded', 'false');
-    }));
+    }
+
+    menuBtn.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    navLinks.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeMenu();
+    });
+
     document.getElementById('year').textContent = new Date().getFullYear();
-    document.querySelectorAll('.mini-gallery img').forEach(img => {
+
+    document.querySelectorAll('.project-media img').forEach((img) => {
       img.addEventListener('error', () => {
-        img.alt = 'Project image could not be loaded';
-        img.style.minHeight = '120px';
+        img.style.display = 'none';
+        const fallback = img.nextElementSibling;
+        if (fallback) fallback.style.display = 'grid';
       });
     });
   </script>
